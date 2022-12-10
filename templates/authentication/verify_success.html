@@ -1,0 +1,38 @@
+{% extends 'basefile.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="columns" style="margin-top: 5%; margin-left:5%">
+        <div class="column is-one-third" style="background-color: black; color: white; font-family: Bahnschrift Light; padding: 10%;">
+            <figure class="image is-96x96">
+                <img class="is-rounded" src="{% static 'images/dehlogo.jpeg' %}">
+            </figure>
+            <label style="font-size: 40px;">Sabaq Management</label>
+            <br>
+            A Dawat E Hadiyah initiation for managing Sabaqs
+        </div>
+        <div class="column" style="font-family: Bahnschrift Light; padding:5%; animation: fadeIn 0.5s;">
+            <!-- <label style="font-size: 30px;"><a href="/register"><i class="fa-solid fa-arrow-left"></i></a> &nbsp;&nbsp; Admin Validation</label>
+            <br/>
+            <label>An Authentication token is sent to the email you registered with. Please enter the token from it and continue</label><br/>
+            <hr style="height:5px; background-color:gray"> -->
+
+            <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <figure class="image">
+                        <img src="{% static 'images/bismillah.webp' %}" style="height: 40%; width:40%">
+                        <br/>
+                        <label style="font-size:30px">You are now a verified DEH Admin!</label>
+                        <br/>
+                        <a href="/login">Continue with Login <span class="icon"><i class="fas fa-arrow-right"></i></span></a>
+                    </figure>
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock content %}

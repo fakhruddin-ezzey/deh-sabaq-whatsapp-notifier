@@ -1,0 +1,44 @@
+{% extends 'basefile.html' %}
+{% load static %}
+{% block content %}
+    <div class="columns" style="margin-top: 5%; margin-left:5%">
+        <div class="column is-one-third" style="background-color: black; color: white; font-family: Bahnschrift Light; padding: 10%;">
+            <figure class="image is-96x96">
+                <img class="is-rounded" src="{% static 'images/dehlogo.jpeg' %}">
+            </figure>
+            <label style="font-size: 40px;">Sabaq Management</label>
+            <br>
+            A Dawat E Hadiyah initiation for managing Sabaqs
+        </div>
+        <div class="column" style="font-family: Bahnschrift Light; padding:5%; animation: fadeIn 0.5s">
+            <label style="font-size: 30px;">Administrator Login</label>
+            <br/>
+            <label>Log in using the Dawat E Hadiyah email ID and password set during registration</label><br/>
+            <hr style="height:5px; background-color:gray">
+
+            <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    Email: 
+                    <div class="control">
+                        <input class="input" type="email" placeholder="DEH Email here. Eg: name@gmail.com, deh@gmail.com, etc..">
+                    </div>
+                    <br/>
+                    Password: 
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Your password here">
+                    </div>
+                    <br/>
+                    <button class="button is-medium is-warning">Login to Sabaq Portal</button>
+                    <br/>
+                    <br/>
+                    New as an Admin? <a href="/register">Register as DEH Admin <span class="icon"><i class="fas fa-arrow-right"></i></span></a>
+
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock content %}
