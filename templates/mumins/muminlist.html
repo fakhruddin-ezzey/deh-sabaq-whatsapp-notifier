@@ -1,0 +1,99 @@
+{% extends 'basefile.html' %}
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div style="font-family: Bahnschrift Light;">
+    <nav class="breadcrumb has-bullet-separator" aria-label="breadcrumbs" style="margin-left: 2%;">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="is-active"><a href="#">Mumins</a></li>
+        </ul>
+    </nav>
+    
+    <hr>
+    <br/>
+    
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <div class="columns">
+                    <div class="column">
+                        As a DEH Admin, it is required for you to log-in with the Facebook account to access Whatsapp messaging.
+                    </div>
+                    <div class="column">
+                        <center><button class="button is-dark" style="width: 30%;">Login using &nbsp;&nbsp;&nbsp;<i class="fa-brands fa-facebook" style="color: rgb(43, 195, 255);"></i></button></center>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="card" style="background-color: rgb(65, 96, 255); color: white;">
+        <div class="card-content">
+          <div class="content">
+            
+            <div class="columns">
+                <div class="column">
+                    Filter by:&nbsp;&nbsp;
+                    <input class="input is-rounded is-small" style="width: 50%;" type="text" placeholder="Eg: Mohammad Fulanwala, etc...">        
+                </div>
+                <div class="column">
+                    Sabaq Group:&nbsp;&nbsp;
+                    <div class="select is-small">
+                        <select>
+                          <option>Hasani</option>
+                          <option>Fatemi</option>
+                          <option>Husaini</option>
+                          <option>Haideri</option>
+                          <option>Mohammadi</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="column">
+                    Mobile Number:&nbsp;&nbsp;
+                    <input class="input is-rounded is-small" style="width: 50%;" type="number" placeholder="Eg: 9725908283, 8989556412, etc...">        
+                </div>
+            </div>
+    
+            
+    
+          </div>
+        </div>
+    </div>
+      
+    <table class="table is-striped" style="width: 100%; margin-top: 2%;">
+        <thead style="font-size: 12px;">
+            <th>Mumin's Name</th>
+            <th>Sabaq Group</th>
+            <th>Mobile Number</th>
+        </thead>
+        <tr>
+            <td style="font-size: 17px;"><b>Mohammad Fulanwala</b></td>
+            <td>Husaini</td>
+            <td>+91 9725908283</td>
+        </tr>
+        <tr>
+            <td style="font-size: 17px;"><b>Mohammad Fulanwala</b></td>
+            <td>Husaini</td>
+            <td>+91 9725908283</td>
+        </tr>
+        <tr>
+            <td style="font-size: 17px;"><b>Mohammad Fulanwala</b></td>
+            <td>Husaini</td>
+            <td>+91 9725908283</td>
+        </tr>
+        <tr>
+            <td style="font-size: 17px;"><b>Mohammad Fulanwala</b></td>
+            <td>Husaini</td>
+            <td>+91 9725908283</td>
+        </tr>
+    </table>
+    
+    
+
+</div>
+
+
+{% endblock content %}
