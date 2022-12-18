@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import pickle, rsa
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,25 @@ SECRET_KEY = 'django-insecure-flr#m7v#sekre1ei$m%zd8)dvn331o#51%rs3p3*#1ygy6f(we
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+RSA_PUBKEY = RSA_PRIVKEY = None
+
+if os.path.exists('publcKey.pem') and os.path.exists('privateKey.pem'):
+    print('Loading RSA keys....')
+    with open('publcKey.pem', 'rb') as p:
+        RSA_PUBKEY = rsa.PublicKey.load_pkcs1(p.read())
+    with open('privateKey.pem', 'rb') as p:
+        RSA_PRIVKEY = rsa.PrivateKey.load_pkcs1(p.read())
+    print('RSA keys loaded.')
+else:
+    print('Creating RSA keys....')
+    RSA_PUBKEY, RSA_PRIVKEY = rsa.newkeys(1024)
+    with open('publcKey.pem', 'wb') as p:
+        p.write(RSA_PUBKEY.save_pkcs1('PEM'))
+    with open('privateKey.pem', 'wb') as p:
+        p.write(RSA_PRIVKEY.save_pkcs1('PEM'))
+    print('RSA keys created.')
 
 
 # Application definition
@@ -76,8 +95,12 @@ WSGI_APPLICATION = 'dehsbq.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dehsabaq',
+        'USER': 'dehsupad',
+        'PASSWORD': 'fezz#123G',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

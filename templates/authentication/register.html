@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="columns" style="margin-top: 5%; margin-left:5%">
-        <div class="column is-one-third" style="background-color: black; color: white; font-family: Bahnschrift Light; padding: 10%;">
+        <div class="column is-one-third" style="background-color: black; color: white; font-family: DM Mono; padding: 10%;">
             <figure class="image is-96x96">
                 <img class="is-rounded" src="{% static 'images/dehlogo.jpeg' %}">
             </figure>
@@ -10,7 +10,7 @@
             <br>
             A Dawat E Hadiyah initiation for managing Sabaqs
         </div>
-        <div class="column" style="font-family: Bahnschrift Light; padding:5%; animation: fadeIn 0.5s">
+        <div class="column" style="font-family: DM Mono; padding:5%; animation: fadeIn 0.5s">
             <label style="font-size: 30px;">Administrator Registration</label>
             <br/>
             <label>Register to the panel using the DEH email provided by the Dawat E Hadiyah</label><br/>
@@ -19,22 +19,27 @@
             <div class="card">
                 <div class="card-content">
                   <div class="content">
+
+                    <div class="notification is-danger" id="alertbox">
+                        <button class="delete"></button>
+                    </div>
+
                     Email: 
                     <div class="control">
-                        <input class="input" type="email" placeholder="DEH Email here. Eg: name@gmail.com, deh@gmail.com, etc..">
+                        <input class="input" id="email" type="email" placeholder="DEH Email here. Eg: name@gmail.com, deh@gmail.com, etc..">
                     </div>
                     <br/>
                     Password: 
                     <div class="control">
-                        <input class="input" type="password" placeholder="Your password here">
+                        <input class="input" id="password1" type="password" placeholder="Your password here">
                     </div>
                     <br/>
                     Confirm Password: 
                     <div class="control">
-                        <input class="input" type="password" placeholder="Re-write the above written password">
+                        <input class="input" id="password2" type="password" placeholder="Re-write the above written password">
                     </div>
                     <br/>
-                    <button class="button is-medium is-warning">Register for Sabaq Portal</button>
+                    <button class="button is-medium is-warning" onclick="auth_validate_register()">Register for Sabaq Portal</button>
                     <br/>
                     <br/>
                     Already have an Account? <a href="/login">Login as DEH Admin <span class="icon"><i class="fas fa-arrow-right"></i></span></a>
@@ -46,4 +51,7 @@
 
         </div>
     </div>
+
+    <script src="{% static 'js/deh_auth_register.js' %}"></script>
+
 {% endblock content %}
