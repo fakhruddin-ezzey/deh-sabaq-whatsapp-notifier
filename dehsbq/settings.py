@@ -28,23 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-RSA_PUBKEY = RSA_PRIVKEY = None
-
-if os.path.exists('publcKey.pem') and os.path.exists('privateKey.pem'):
-    print('Loading RSA keys....')
-    with open('publcKey.pem', 'rb') as p:
-        RSA_PUBKEY = rsa.PublicKey.load_pkcs1(p.read())
-    with open('privateKey.pem', 'rb') as p:
-        RSA_PRIVKEY = rsa.PrivateKey.load_pkcs1(p.read())
-    print('RSA keys loaded.')
-else:
-    print('Creating RSA keys....')
-    RSA_PUBKEY, RSA_PRIVKEY = rsa.newkeys(1024)
-    with open('publcKey.pem', 'wb') as p:
-        p.write(RSA_PUBKEY.save_pkcs1('PEM'))
-    with open('privateKey.pem', 'wb') as p:
-        p.write(RSA_PRIVKEY.save_pkcs1('PEM'))
-    print('RSA keys created.')
 
 
 # Application definition
@@ -57,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'notifier.apps.NotifierConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -149,5 +134,14 @@ STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'dehdahodmgmt@gmail.com'
+EMAIL_HOST_PASSWORD = 'dxysrmzczlrmlyoe' #use as env variable for security
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

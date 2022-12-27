@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="icon" href="{% static 'images/dehlogo.jpeg' %}">
+    <script src="https://kit.fontawesome.com/6b41e6376a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>Dawat E Hadiya Sabaq Panel</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <center>
+        <div class="card" style="background-color: black; width: 40%; font-family: DM Mono; color:white">
+            <div class="card-content">
+              <div class="content">
+                <img src="https://images.zameen.com/d250/1/1339.jpg" style="width: 48px; height:48px; margin-top: 10%;">
+                <br/>
+                <label style="font-size: 30px; color:white">Sabaq Management</label>
+                <br/><br/>
+                <label style="color: white;">Here is the security token for the DEH Admin verification</label>
+                <br/><br/>
+                <label style="font-size: 10px; color:gold; padding: 10px; border-color: gold;">{{ token_key }}</label>
+                <br/><br/>
+                <label style="font-size: 7px; color:white;">© Dawat E Hadiyah Dahod</label>
+                <hr>
+              </div>
+            </div>
+        </div>
+    </center>
+    
+</body>
+</html>

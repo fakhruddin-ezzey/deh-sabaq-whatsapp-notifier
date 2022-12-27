@@ -36,7 +36,28 @@ function auth_validate_register(){
     }
 
     if(process_request_flag){
-        
+        $.ajax({
+            type: "POST",
+            url: "/register_deh_admin",
+            data:{
+                csrfmiddlewaretoken:"{{ csrf_token }}",
+                "username":"",
+                "email":auth_register_vals[0].value,
+                "password":auth_register_vals[1].value,
+                "is_active":null
+            },
+            success: function(data){
+                if(data.is_created){
+                    window.location.href = "/verify_authtoken"
+                }else{
+                    alertIssue("Some server error occured. Please try again some time.")
+                }
+                
+            },
+            error: function(xhr){
+                document.getElementById('alertbox').innerHTML = 'Some server error occured. Try again';
+            }
+        });
     }
 
 }

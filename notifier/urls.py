@@ -4,10 +4,13 @@ from . import views
 urlpatterns = [
 
     # auth view path
-    path('login', views.loginview, name="login-page"),
-    path('register', views.registerview, name="register-page"),
-    path('verify_authtoken', views.authtokenview, name="verify-auth-token-page"),
-    path('verify_success', views.authsuccessview, name="verify-auth-success-page"),
+    path('login', views.LoginDEHAdminView.as_view(), name="login-page"),
+    path('register', views.RegisterDEHAdminView.as_view(), name="register-page"),
+    path('verify_authtoken', views.VerifyDEHAdminTokenView.as_view(), name="verify-auth-token-page"),
+    path('verify_success', views.VerifyDEHAdminSuccessView.as_view(), name="verify-auth-success-page"),
+
+    #auth apis
+    path('register_deh_admin',views.RegisterDEHAdmin.as_view(), name="register-deh-admin"),
 
     # mumins list
     path('mumin', views.muminlist, name="mumin-list"),
