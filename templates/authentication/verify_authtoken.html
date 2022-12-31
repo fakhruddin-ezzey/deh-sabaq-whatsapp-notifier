@@ -21,17 +21,22 @@
             <div class="card">
                 <div class="card-content">
                   <div class="content">
+                    <div class="notification is-danger" id="alertbox">
+                        <button class="delete"></button>
+                    </div>
+
                     <label style="font-size:20px">Enter the DEH verification token sent to the email</label>
                     <br/>
-                    <input class="input is-large" type="text" placeholder="Eg: sa78i8-12uet3-msng46-yett23, etc...">
+                    <input class="input is-large" type="text" placeholder="Eg: sa78i8-12uet3-msng46-yett23, etc..." id="token_val">
                     <br/>
                     <br/>
-                    <button class="button is-medium is-warning">Verify and Continue</button>
+                    <button class="button is-medium is-warning" onclick="verify_authtoken()">Verify and Continue</button>
                   </div>
                 </div>
             </div>
-
-
         </div>
     </div>
+
+    <script src="{% static 'js/deh_verify_authtoken.js' %}"></script>
+
 {% endblock content %}

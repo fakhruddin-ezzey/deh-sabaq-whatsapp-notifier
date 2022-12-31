@@ -19,17 +19,25 @@
             <div class="card">
                 <div class="card-content">
                   <div class="content">
+
+                    <div class="notification is-danger" id="alertbox">
+                        <button class="delete"></button>
+                    </div>
+
+                    
+                    {{ csrf_token }}
+                    <br/>
                     Email: 
                     <div class="control">
-                        <input class="input" type="email" placeholder="DEH Email here. Eg: name@gmail.com, deh@gmail.com, etc..">
+                        <input class="input" type="email" placeholder="DEH Email here. Eg: name@gmail.com, deh@gmail.com, etc.." id="validating_email">
                     </div>
                     <br/>
                     Password: 
                     <div class="control">
-                        <input class="input" type="password" placeholder="Your password here">
+                        <input class="input" type="password" placeholder="Your password here" id="validating_password">
                     </div>
                     <br/>
-                    <button class="button is-medium is-warning">Login to Sabaq Portal</button>
+                    <button class="button is-medium is-warning" onclick="validate_deh_admin()">Login to Sabaq Portal</button>
                     <br/>
                     <br/>
                     New as an Admin? <a href="/register">Register as DEH Admin <span class="icon"><i class="fas fa-arrow-right"></i></span></a>
@@ -41,4 +49,7 @@
 
         </div>
     </div>
+
+    <script src="{% static 'js/deh_validate.js' %}"></script>
+
 {% endblock content %}

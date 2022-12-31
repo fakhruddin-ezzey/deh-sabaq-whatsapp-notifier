@@ -7,8 +7,6 @@ class DEHAdminRegister():
 
     def __init__(self, to_be_morphed_data) -> None:
         self.__rq = to_be_morphed_data
-        print("==============\n",self.__rq,"==================\n",)
-        
 
     def __generate_username(self):
         self.__rq['username'] = self.__rq['email'].split('@')[0]
@@ -24,5 +22,4 @@ class DEHAdminRegister():
         self.__make_password()
         self.__make_admin_inactive()
         return self.__rq
-
 
