@@ -11,6 +11,8 @@ urlpatterns = [
 
     #auth apis
     path('register_deh_admin',views.RegisterDEHAdmin.as_view(), name="register-deh-admin"),
+    path('verify_deh_admin',views.VerifyDEHAdmin.as_view(), name="verify-deh-admin"),
+    path('validate_deh_admin',views.ValidateDEHAdmin.as_view(), name="validate-deh-admin"),
 
     # mumins list
     path('mumin', views.muminlist, name="mumin-list"),
