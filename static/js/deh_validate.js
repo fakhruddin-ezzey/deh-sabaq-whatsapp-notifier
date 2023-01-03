@@ -17,10 +17,7 @@ const alertIssue = (message) => {
     return -1;
 };
 
-const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-document.cookie = "csrftoken="+csrftoken;
-
-function validate_deh_admin(){
+function validate_deh_admin(csrftokem){
 
     process_flag = true;
 
@@ -37,7 +34,7 @@ function validate_deh_admin(){
             type: "POST",
             url: "/validate_deh_admin",
             data:{
-                "csrfmiddlewaretoken": csrftoken,
+                csrfmiddlewaretoken: csrftokem,
                 "authenticate_email":validating_email,
                 "authenticate_password":validating_password,
             },

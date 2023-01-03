@@ -112,7 +112,7 @@ class VerifyDEHAdmin(APIView):
 class ValidateDEHAdmin(APIView):
 
     def post(self, request, format=None):
-
+        print(request.user.is_authenticated)
         is_validated = True
         api_status_code = HTTP_200_OK
 
@@ -122,20 +122,24 @@ class ValidateDEHAdmin(APIView):
         authenticating_email = data.get('authenticate_email')
         authenticating_password = data.get('authenticate_password')
 
-        try:
-            existing_user = User.objects.get(email=authenticating_email)
-            user_model_validated = authenticate(username=existing_user.username, password=authenticating_password)
-            if user_model_validated is not None:
-                print("authed")
-                login(request, user_model_validated)
-            else:
-                print("not authed")
+        if request.user.is_authenticated:
+            pass
+        else:
+            try:
+                existing_user = User.objects.get(email=authenticating_email)
+                user_model_validated = authenticate(username=existing_user.username, password=authenticating_password)
+                if user_model_validated is not None and user_model_validated.is_active:
+                    print("authed")
+                    login(request, user_model_validated)
+                    print("authed complete")
+                else:
+                    print("not authed")
+                    is_validated = False
+                    api_status_code = HTTP_500_INTERNAL_SERVER_ERROR    
+            except Exception as e:
+                print(type(e).__name__,'========>', e.args)
                 is_validated = False
-                api_status_code = HTTP_500_INTERNAL_SERVER_ERROR    
-        except Exception as e:
-            print(e)
-            is_validated = False
-            api_status_code = HTTP_500_INTERNAL_SERVER_ERROR
+                api_status_code = HTTP_500_INTERNAL_SERVER_ERROR
             
         return Response({'is_validated':is_validated, 'api_status_code':api_status_code})
 
